@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'XJTools_Swift_Example' do
+  pod 'XJTools_Swift', :path => '../'
+
+  target 'XJTools_Swift_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
