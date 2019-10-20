@@ -40,11 +40,11 @@
 		607FACE51AFB9204008FA782 /* XJTools_Swift_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XJTools_Swift_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		7FB8FAE160D8D44EF4ABC320 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		8C0E971958602701916A3D51 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		7FB8FAE160D8D44EF4ABC320 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		8C0E971958602701916A3D51 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AAF052BADAE80E047DECFAB7 /* Pods-XJTools_Swift_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJTools_Swift_Example.release.xcconfig"; path = "Target Support Files/Pods-XJTools_Swift_Example/Pods-XJTools_Swift_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B108B2B4C8FC707A2837E287 /* Pods_XJTools_Swift_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XJTools_Swift_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1F8ED821E37F5306A10F22F /* XJTools_Swift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = XJTools_Swift.podspec; path = ../XJTools_Swift.podspec; sourceTree = "<group>"; };
+		D1F8ED821E37F5306A10F22F /* XJTools_Swift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XJTools_Swift.podspec; path = ../XJTools_Swift.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D6D6DADFA13317153836FC67 /* Pods-XJTools_Swift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJTools_Swift_Example.debug.xcconfig"; path = "Target Support Files/Pods-XJTools_Swift_Example/Pods-XJTools_Swift_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DDACD713126E4E4239ED45F0 /* Pods-XJTools_Swift_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJTools_Swift_Tests.release.xcconfig"; path = "Target Support Files/Pods-XJTools_Swift_Tests/Pods-XJTools_Swift_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,7 +77,6 @@
 				56E70C2A5604826E125195AE /* Pods-XJTools_Swift_Tests.debug.xcconfig */,
 				DDACD713126E4E4239ED45F0 /* Pods-XJTools_Swift_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
