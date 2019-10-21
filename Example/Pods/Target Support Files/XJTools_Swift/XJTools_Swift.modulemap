@@ -1,0 +1,6 @@
+framework module XJTools_Swift {
+  umbrella header "XJTools_Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}
