@@ -1,9 +1,8 @@
 //
-//  XJWKWebViewBridge.swift
-//  TradeMark
+//  XJTools_Swift
+//  Created by JingXueLong.
+//  Copyright © 2018 JingXueLong. All rights reserved.
 //
-//  Created by JingXueLong on 2019/10/15.
-//  Copyright © 2019 北京梦知网科技有限公司. All rights reserved.
 //
 
 import UIKit
@@ -15,6 +14,7 @@ class XJWKWebViewBridge: NSObject,WKScriptMessageHandler {
     var handleArray: [String:BackHandel] = [:]
     
     weak var webView: WKWebView?
+    
     init(webView: WKWebView) {
         self.webView = webView
     }

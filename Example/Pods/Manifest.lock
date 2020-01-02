@@ -1,16 +1,23 @@
 PODS:
-  - XJTools_Swift (0.1.1)
+  - SnapKit (4.2.0)
+  - XJTools_Swift (0.1.1):
+    - SnapKit (~> 4.2.0)
 
 DEPENDENCIES:
   - XJTools_Swift (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
 
 EXTERNAL SOURCES:
   XJTools_Swift:
     :path: "../"
 
 SPEC CHECKSUMS:
-  XJTools_Swift: 15557051283c6715f7df52f389bfe108658664cf
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  XJTools_Swift: 447cd6db9cc773ebc8419efe976d747772737fe7
 
-PODFILE CHECKSUM: 518fa26fe990023f110b2549af80fd40757cfac9
+PODFILE CHECKSUM: feef42ae88c42d3e8a5c0b51acaf7559acb509ca
 
 COCOAPODS: 1.8.3

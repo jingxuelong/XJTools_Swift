@@ -15,6 +15,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		98A02ED821C13D2998642785 /* Pods_XJTools_Swift_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7B028122AE696A6D57B97D /* Pods_XJTools_Swift_Tests.framework */; };
+		C783590F23BDD2DF00ED5D58 /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C783590E23BDD2DF00ED5D58 /* TestController.swift */; };
+		C783591323BDD73800ED5D58 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = C783591223BDD73800ED5D58 /* Test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,10 @@
 		8C0E971958602701916A3D51 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AAF052BADAE80E047DECFAB7 /* Pods-XJTools_Swift_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJTools_Swift_Example.release.xcconfig"; path = "Target Support Files/Pods-XJTools_Swift_Example/Pods-XJTools_Swift_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B108B2B4C8FC707A2837E287 /* Pods_XJTools_Swift_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XJTools_Swift_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C783590E23BDD2DF00ED5D58 /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
+		C783591023BDD73800ED5D58 /* XJTools_Swift_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XJTools_Swift_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		C783591123BDD73800ED5D58 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		C783591223BDD73800ED5D58 /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
 		D1F8ED821E37F5306A10F22F /* XJTools_Swift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XJTools_Swift.podspec; path = ../XJTools_Swift.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D6D6DADFA13317153836FC67 /* Pods-XJTools_Swift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJTools_Swift_Example.debug.xcconfig"; path = "Target Support Files/Pods-XJTools_Swift_Example/Pods-XJTools_Swift_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		DDACD713126E4E4239ED45F0 /* Pods-XJTools_Swift_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJTools_Swift_Tests.release.xcconfig"; path = "Target Support Files/Pods-XJTools_Swift_Tests/Pods-XJTools_Swift_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,10 +112,14 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				C783591123BDD73800ED5D58 /* Test.h */,
+				C783591223BDD73800ED5D58 /* Test.m */,
+				C783590E23BDD2DF00ED5D58 /* TestController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				C783591023BDD73800ED5D58 /* XJTools_Swift_Example-Bridging-Header.h */,
 			);
 			name = "Example for XJTools_Swift";
 			path = XJTools_Swift;
@@ -212,11 +222,14 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
+						DevelopmentTeam = H2X83ENMLF;
+						LastSwiftMigration = 1110;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = H2X83ENMLF;
 						LastSwiftMigration = 0900;
+						ProvisioningStyle = Manual;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -313,10 +326,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-XJTools_Swift_Example/Pods-XJTools_Swift_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/XJTools_Swift/XJTools_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XJTools_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +346,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C783590F23BDD2DF00ED5D58 /* TestController.swift in Sources */,
+				C783591323BDD73800ED5D58 /* Test.m in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
@@ -478,11 +495,15 @@
 			baseConfigurationReference = D6D6DADFA13317153836FC67 /* Pods-XJTools_Swift_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = H2X83ENMLF;
 				INFOPLIST_FILE = XJTools_Swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XJTools_Swift/XJTools_Swift_Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -493,11 +514,14 @@
 			baseConfigurationReference = AAF052BADAE80E047DECFAB7 /* Pods-XJTools_Swift_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = H2X83ENMLF;
 				INFOPLIST_FILE = XJTools_Swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XJTools_Swift/XJTools_Swift_Example-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -507,6 +531,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 56E70C2A5604826E125195AE /* Pods-XJTools_Swift_Tests.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = H2X83ENMLF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -519,6 +545,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XJTools_Swift_Example.app/XJTools_Swift_Example";
@@ -529,6 +557,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DDACD713126E4E4239ED45F0 /* Pods-XJTools_Swift_Tests.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = H2X83ENMLF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -537,6 +567,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XJTools_Swift_Example.app/XJTools_Swift_Example";
