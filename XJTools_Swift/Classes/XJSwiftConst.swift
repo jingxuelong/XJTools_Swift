@@ -10,6 +10,16 @@
 import Foundation
 import UIKit
 
+
+/// 设置是适配值模式  default floor 小数向下取整 32.11 = 32.0   none 不取整  ceil 向上取整
+public enum XJValuesMode {
+    case ceil
+    case floor
+    case none
+}
+
+public var currentValuesMode: XJValuesMode = .floor
+
 //常量
 public let k_XJScreenWide_S: CGFloat = UIScreen.main.bounds.size.width
 
@@ -38,38 +48,20 @@ public var  is_XJIphone_S: Bool {get{
 
 public let  is_XJIphoneWithSafeArea_S: Bool = getIs_XJIphoneWithSafeArea()
 
-//执行一次
-fileprivate func getIs_XJIphoneWithSafeArea() -> Bool{
-    if is_XJIphone_S , #available(iOS 11.0,  * ){
-        var bottom = 0.0
-        if let window = UIApplication.shared.delegate?.window, let innerWindow = window {
-            bottom = Double(innerWindow.safeAreaInsets.bottom)
-        }else{
-            let window = UIWindow(frame: UIScreen.main.bounds)
-            bottom = Double(window.safeAreaInsets.bottom)
-        }
-        if bottom > 0.0  {
-            return true
-        }
-    }
-    return false
-}
-
 
 ///适配值  Replace by  20.XJWide
 public func XJAutoWideValue(_ value: CGFloat, iphoneXAdd: CGFloat = 0) -> CGFloat {
     let needAdd: CGFloat = is_XJIphoneWithSafeArea_S ? CGFloat(iphoneXAdd) * k_XJWideScale_S : 0.0
-    return CGFloat(value) * k_XJWideScale_S + needAdd
+    return getValueChangeFunc()(CGFloat(value) * k_XJWideScale_S + needAdd)
 }
 public func XJAutoWideValue(_ value: Int, iphoneXAdd: Int = 0) -> CGFloat {
     let needAdd: CGFloat = is_XJIphoneWithSafeArea_S ? CGFloat(iphoneXAdd) * k_XJWideScale_S : 0.0
-    return CGFloat(value) * k_XJWideScale_S + needAdd
+    return getValueChangeFunc()(CGFloat(value) * k_XJWideScale_S + needAdd)
 }
 public func XJAutoWideValue(_ value: Double, iphoneXAdd: Double = 0) -> CGFloat {
     let needAdd: CGFloat = is_XJIphoneWithSafeArea_S ? CGFloat(iphoneXAdd) * k_XJWideScale_S : 0.0
-    return CGFloat(value) * k_XJWideScale_S + needAdd
+    return getValueChangeFunc()(CGFloat(value) * k_XJWideScale_S + needAdd)
 }
-
 
 /**
     苹方-简 常规体
@@ -116,4 +108,42 @@ public func XJFontPingSC_Ultralight(_ fontsize: Int) -> UIFont{
 }
 
 
+//执行一次
+fileprivate func getIs_XJIphoneWithSafeArea() -> Bool{
+    if is_XJIphone_S , #available(iOS 11.0,  * ){
+        var bottom = 0.0
+        if let window = UIApplication.shared.delegate?.window, let innerWindow = window {
+            bottom = Double(innerWindow.safeAreaInsets.bottom)
+        }else{
+            let window = UIWindow(frame: UIScreen.main.bounds)
+            bottom = Double(window.safeAreaInsets.bottom)
+        }
+        if bottom > 0.0  {
+            return true
+        }
+    }
+    return false
+}
+
+
+func getValueChangeFunc() -> (CGFloat) -> CGFloat {
+    func nonefunc(value: CGFloat) -> CGFloat{
+        return CGFloat(value)
+    }
+    func floorfunc(value: CGFloat) -> CGFloat{
+        return CGFloat(floor(value))
+    }
+    func ceilfunc(value: CGFloat) -> CGFloat{
+        return CGFloat(ceil(value))
+    }
+    switch currentValuesMode {
+    case .none:
+        return nonefunc(value:)
+    case .ceil:
+        return ceilfunc(value:)
+    case .floor:
+        return floorfunc(value:)
+    }
+    
+}
 

@@ -7,27 +7,68 @@
 //
 
 import UIKit
+import WebKit
 
-class TestController: UIViewController{
+class TestController: BaseSwiftController{
+    
+    override var titleName: String? {"Test"}
+    
+//    override var needNavView: Bool{true}
+    
+    override var needBackBtn: Bool{true} //默认needNavView
+    
+    var webView = { () -> WKWebView in
+        let webView = WKWebView(frame: .zero, configuration: WKWebViewConfiguration())
+        webView.backgroundColor = .white
+        return webView
+    }()
+    var wbBridge: XJWKWebViewBridge!
 
+    
+    var tableView: UITableView = getNormalTableView(frame: .init(origin: .zero, size: .init(width: k_XJScreenWide_S, height: k_XJScreenHeight_S)))
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        view.snp.makeConstraints { (make) in
-            
+        //设置所有适配值返回模式  CGFloat 向上取整 向下取整 不作操作（可能小数很长某些试图出现特殊线问题） 默认floor模式
+        currentValuesMode = .floor
+        
+        
+        //根据屏幕宽度自适应值 基准iPhone6  wide 375   CGFloat
+        let wide = 40.XJWide
+        let wide1 = XJAutoWideValue(40) //等效
+        print("wide = ", wide,"wide1 = ",wide1)
+        
+        //如果是全屏幕系列自动增加 20  ，在适配值基础上   CGFloat
+        let height = 40.XJWideIphoneXAdd(20)
+        let height1 = XJAutoWideValue(40, iphoneXAdd: 20) //等效
+        print("height = ", height, "height1 = ",height1)
+
+        
+        //平方字体
+        let font = XJFontPingSC_Regular(20)
+        let font1 = XJFontPingSC_Medium(20)
+                
+        
+        ///初始化
+        wbBridge = XJWKWebViewBridge(webView: webView)
+        
+        ///注册和回调
+        wbBridge.registJSfunc(name: "uploadx") {(message, name) in
+            if let messageDic = message{
+                print(messageDic, name)
+            }
         }
+        
+        
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    ///返回事件可重写
+    override func back() {
+        super.back()
     }
-    */
 
 }

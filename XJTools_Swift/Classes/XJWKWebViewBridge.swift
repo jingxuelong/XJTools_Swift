@@ -8,28 +8,31 @@
 import UIKit
 import WebKit
 
-typealias BackHandel = (NSDictionary?,String) ->Void
-class XJWKWebViewBridge: NSObject,WKScriptMessageHandler {
+public typealias BackHandel = (NSDictionary?,String) ->Void
+
+/// WKWebView 工具 注册回调一个方法搞定
+public class XJWKWebViewBridge: NSObject,WKScriptMessageHandler {
     
     var handleArray: [String:BackHandel] = [:]
     
     weak var webView: WKWebView?
     
-    init(webView: WKWebView) {
+    public init(webView: WKWebView) {
         self.webView = webView
     }
     
-    func registJSfunc(name: String, backHandel: @escaping BackHandel){
+    public func registJSfunc(name: String, backHandel: @escaping BackHandel){
         self.webView?.configuration.userContentController.add(self, name: name)
         handleArray[name] = backHandel
     }
     
-    func removeJSfunc(name: String){
+    public func removeJSfunc(name: String){
         self.webView?.configuration.userContentController.removeScriptMessageHandler(forName: name)
         handleArray[name] = nil
     }
     
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+    
+    public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if let handel =  handleArray[message.name] {
             if let strmessage = message.body as? String{
                 if let data = strmessage.data(using: .utf8){

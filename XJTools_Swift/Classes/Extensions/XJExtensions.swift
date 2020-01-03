@@ -129,12 +129,20 @@ public extension UIImage{
 
 public extension Int {
     ///根据屏幕自适配值
-    var XJWide: CGFloat {get{CGFloat(self) * k_XJWideScale_S}}
+    var XJWide: CGFloat {get{getValueChangeFunc()(CGFloat(self) * k_XJWideScale_S)}}
     
+    ///根据屏幕适配值 + iPhone X系列额外增加值
+    func XJWideIphoneXAdd(_ add: Int) -> CGFloat {
+        getValueChangeFunc()(CGFloat(self + add) * k_XJWideScale_S)
+    }
 }
 
 public extension Double {
     ///根据屏幕自适配值
-    var XJWide: CGFloat {get{CGFloat(self) * k_XJWideScale_S}}
+    var XJWide: CGFloat {get{getValueChangeFunc()(CGFloat(self) * k_XJWideScale_S)}}
     
+    ///根据屏幕适配值 + iPhone X系列额外增加值
+    func XJWideIphoneXAdd(_ add: Double) -> CGFloat {
+        getValueChangeFunc()(CGFloat(self + add) * k_XJWideScale_S)
+    }
 }

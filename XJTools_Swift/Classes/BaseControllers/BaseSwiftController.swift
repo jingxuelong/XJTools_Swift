@@ -48,7 +48,9 @@ open class BaseSwiftController: UIViewController {
         let centY: CGFloat = k_XJNavHeight_S/2.0 + k_XJStatusBarHeight_S
         
         if needBackBtn {
-            backBtn.setImage(UIImage(named: "top_Back_black"), for: .normal)
+            if #available(iOS 13.0, *) {
+                backBtn.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+            }
             navView.addSubview(backBtn)
             backBtn.addTarget(self, action: #selector(back), for: .touchUpInside)
             backBtn.snp.makeConstraints { (make) in
