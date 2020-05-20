@@ -3,7 +3,7 @@
 //  Created by JingXueLong.
 //  Copyright © 2018 JingXueLong. All rights reserved.
 //
-
+#if os(iOS)
 import UIKit
 import SnapKit
 
@@ -115,4 +115,4 @@ extension BaseSwiftController{  //MARK:  通用扩展方法分类
 
 }
 
-
+#endif

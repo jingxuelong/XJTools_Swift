@@ -4,6 +4,7 @@
 //  Copyright © 2018 JingXueLong. All rights reserved.
 //
 //
+#if os(iOS)
 
 import UIKit
 import WebKit
@@ -38,3 +39,5 @@ public class XJWKWebViewBridge: NSObject,WKScriptMessageHandler {
     }
     
 }
+
+#endif

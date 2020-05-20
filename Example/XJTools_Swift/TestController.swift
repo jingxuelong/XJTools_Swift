@@ -25,7 +25,7 @@ class TestController: BaseSwiftController{
     var wbBridge: XJWKWebViewBridge!
 
     
-    var tableView: UITableView = getNormalTableView(frame: .init(origin: .zero, size: .init(width: k_XJScreenWide_S, height: k_XJScreenHeight_S)))
+    var tableView: UITableView = BaseSwiftController.ClassGetNormalTableView(frame: .init(origin: .zero, size: .init(width: k_XJScreenWide_S, height: k_XJScreenHeight_S)))
     
     
     override func viewDidLoad() {
@@ -56,9 +56,7 @@ class TestController: BaseSwiftController{
         
         ///注册和回调
         wbBridge.registJSfunc(name: "uploadx") {(message, name) in
-            if let messageDic = message{
-                print(messageDic, name)
-            }
+            
         }
         
         

@@ -4,6 +4,7 @@
 //
 //  Copyright © 2018 JingXueLong. All rights reserved.
 //
+#if os(iOS)
 
 import Foundation
 import UIKit
@@ -167,3 +168,5 @@ public extension NSMutableAttributedString {
                        NSAttributedString.Key.foregroundColor : foregroundColor], range: NSRange.init(location: 0, length: string.count))
     }
 }
+
+#endif
