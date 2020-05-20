@@ -15,7 +15,7 @@ let package = Package(
             targets: ["XJTools_Swift"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/SnapKit/SnapKit", from: "")
+        .package(url: "https://github.com/SnapKit/SnapKit", from: "5.0.0")
 //        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.0.0-rc.3")
 
     ],
